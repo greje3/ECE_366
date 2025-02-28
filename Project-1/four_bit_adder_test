@@ -7,7 +7,7 @@ module testbench;
   wire Cout;
 
   
-  four_bit_RCA_RCS uut (.A(A), .B(B), .Cin(Cin), .S(S), .Cout(Cout));
+  four_bit_RCA uut (.A(A), .B(B), .Cin(Cin), .S(S), .Cout(Cout));
 
   initial begin
     // Print header for clarity
