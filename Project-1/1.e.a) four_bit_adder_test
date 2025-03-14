@@ -10,6 +10,11 @@ module testbench;
   four_bit_RCA uut (.A(A), .B(B), .Cin(Cin), .S(S), .Cout(Cout));
 
   initial begin
+
+    $dumpfile("waveform.vcd"); // VCD file for waveform
+    $dumpvars(0, testbench);   // Dump all variables in testbench
+
+
     // Print header for clarity
     $display("A     B     Cin | S     Cout");
     $display("----------------------------");
