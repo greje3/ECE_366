@@ -9,6 +9,11 @@ module testbench;
   Prefix_Adder uut (.A(A), .B(B), .Cin(Cin), .Sum(Sum), .Cout(Cout));
 
   initial begin
+
+    $dumpfile("waveform.vcd"); // VCD file for waveform
+    $dumpvars(0, testbench);   // Dump all variables in testbench
+
+
     // Print header for clarity
     $display("A    B     Cin | Sum       Cout");
     $display("--------------------------------------------------------");
