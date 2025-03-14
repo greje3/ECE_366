@@ -9,6 +9,10 @@ module testbench;
 
   initial begin
 
+    $dumpfile("waveform.vcd"); // VCD file for waveform
+    $dumpvars(0, testbench);   // Dump all variables in testbench
+
+
     $display("A  B  Cin | S  Cout");
     $display("-------------------");
 
