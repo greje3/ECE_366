@@ -1,6 +1,6 @@
-Fibonacci MIPS Program
+Fibonacci MIPS Program: 
 
-Team Members
+Team Members: 
 
 Gulbadam Rejepova | NetID:greje3
 
@@ -10,7 +10,8 @@ Mira Dawoud | NetID:mdawo2
 
 Judy Sabry| NetID:jsabr2
 
-Contribution
+
+Contribution: 
 
 Gulbadam : Implemented Fibonacci function in MIPS.
 
@@ -21,6 +22,7 @@ Mira : Wrote documentation and structured the README file.
 Judy : Handled input validation and error handling.
 
 GitHub Repository Link: https://github.com/greje3/ECE_366
+
 
 How to Run the Program:
 
@@ -38,6 +40,6 @@ Run the program (Run button in MARS).
 
 The nth Fibonacci number will be stored in memory at the result label.
 
-Expected Output
+Expected Output: 
 
 If n = 10, the output stored in result should be 55 (the 10th Fibonacci number).
