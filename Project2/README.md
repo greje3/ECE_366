@@ -6,7 +6,7 @@ Gulbadam Rejepova | NetID:greje3
 
 Marah Qasem | NetID:mqase2
 
-Mira Dawoud | NetID: mdawo2
+Mira Dawoud | NetID:mdawo2
 
 Judy Sabry| NetID:jsabr2
 
