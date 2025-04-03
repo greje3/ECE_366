@@ -24,7 +24,7 @@ GitHub Repository Link: https://github.com/greje3/ECE_366
 
 How to Run the Program:
 
-Download and install the MARS MIPS simulator: MARS Download
+Download and install the MARS MIPS simulator:
 
 Clone the repository:
 
