@@ -1,57 +1,60 @@
 .data
-n:      .word 10   # Example value for n
-result: .word 0    # Store Fibonacci(n)
+n_val: .word 5      # n = 5 (can change and run it for any number, we put it here for example purposes)
+result: .word 0
 
 .text
 .globl main
+
 main:
-    # Load n from memory
-    la   $t0, n      # Load address of n
-    lw   $a0, 0($t0) # Load value of n into $a0
+    # load n from memory
+    lw $a0, n_val
 
-    # Check if n is zero
-    beq  $a0, $zero, base_case 
 
-    # Call Fibonacci function
-    jal  fibonacci
+    # check if n <= 1
+    blez $a0, fib_base_case
 
-    # Store result in memory
-    la   $t1, result  # Load address of result
-    sw   $v0, 0($t1)  # Store computed Fibonacci(n)
+    # initialize a and b
+    li $t0, 0      # a = 0
+    li $t1, 1      # b = 1
 
-    # Exit program
-    li   $v0, 10
-    syscall
+    # loop (n - 1) times
+    addi $a0, $a0, -1  # n = n - 1
 
-# Fibonacci function
-# Input: $a0 = n
-# Output: $v0 = Fibonacci(n)
-fibonacci:
-    addi $sp, $sp, -8  # Allocate stack space
-    sw   $ra, 4($sp)   # Save return address
-    sw   $a0, 0($sp)   # Save n
+fib_loop:
 
-    # Base case: if n <= 1, return n
-    ble  $a0, 1, base_case
+    # check if loop counter is zero.
+    beqz $a0, fib_end_loop
 
-    # Recursive case: Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
+    # temp = b
+    move $t2, $t1
+
+    # b = a + b
+    add $t1, $t0, $t1
+
+    # a = temp
+    move $t0, $t2
+
+    # decrement loop counter
     addi $a0, $a0, -1
-    jal  fibonacci  # Compute Fibonacci(n-1)
-    move $t1, $v0   # Store result in $t1
+    
+    # loop back to fib_loop_inline
+    j fib_loop
 
-    lw   $a0, 0($sp)  # Restore n
-    addi $a0, $a0, -2
-    jal  fibonacci  # Compute Fibonacci(n-2)
+fib_end_loop:
+    # store b (result) in memory
+    sw $t1, result
+    
+    # jump to the end of the program
+    j end
 
-    add  $v0, $t1, $v0  # Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
+fib_base_case:
+    # store n in memory
+    sw $a0, result
+    
+    # jump to end of program
+    j end
 
-    # Restore stack and return
-    lw   $ra, 4($sp)   # Restore return address
-    addi $sp, $sp, 8   # Deallocate stack space
-    jr   $ra
-
-base_case:
-    move $v0, $a0  # Return n for base case
-    lw   $ra, 4($sp)   # Restore return address
-    addi $sp, $sp, 8   # Deallocate stack space
-    jr   $ra
+end:
+    # exit the program
+    li $v0, 10
+    syscall
