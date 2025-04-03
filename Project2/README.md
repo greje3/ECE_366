@@ -3,18 +3,22 @@ Fibonacci MIPS Program
 Team Members
 
 Gulbadam Rejepova | NetID:greje3
+
 Marah Qasem | NetID:mqase2
+
 Mira Dawoud | NetID: mdawo2
+
 Judy Sabry| NetID:jsabr2
 
 Contribution
 
 Gulbadam : Implemented Fibonacci function in MIPS.
-Marah : Debugged and tested the MIPS code.
-Mira : Wrote documentation and structured the README file.
-Judy : Handled input validation and error handling
 
-GitHub Repository:
+Marah : Debugged and tested the MIPS code.
+
+Mira : Wrote documentation and structured the README file.
+
+Judy : Handled input validation and error handling.
 
 GitHub Repository Link: https://github.com/greje3/ECE_366
 
