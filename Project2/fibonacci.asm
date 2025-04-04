@@ -57,4 +57,4 @@ fib_base_case:
 end:
     # exit the program
     li $v0, 10
-    syscall
+
